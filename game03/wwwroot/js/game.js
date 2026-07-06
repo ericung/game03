@@ -10,14 +10,16 @@ const canvas = document.getElementById("game");
 const ctx = canvas.getContext('2d');
 function draw() {
     // Example drawing after resize
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = 'blue';
-    ctx.fillRect(x,y,200, 100);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
     // initialize backing store size and a sample drawing
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     if (ctx) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'blue';
+        ctx.fillRect(300,300,200, 100);
         ctx.fillStyle = 'red';
         ctx.fillRect(x, y, 100, 50);
     }
@@ -65,3 +67,9 @@ window.addEventListener('keydown', function(event) {
     draw();
 });
 
+
+
+setTimeout(() => {
+    draw('red'); // Change color after delay
+    console.log('Canvas redrawn after 2 seconds');
+  }, 2000);
