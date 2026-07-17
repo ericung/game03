@@ -1,7 +1,4 @@
-﻿// Expose named exports so Blazor can import this file as an ES module
-// Move all DOM access into exported functions so code runs after the component renders
-
-var x = 50;
+﻿var x = 50;
 var y = 50;
 //    const canvas = document.getElementById(canvasId);
 //    if (!canvas) return;
@@ -67,9 +64,9 @@ window.addEventListener('keydown', function(event) {
     draw();
 });
 
-
-
 setTimeout(() => {
     draw('red'); // Change color after delay
     console.log('Canvas redrawn after 2 seconds');
   }, 2000);
+
+

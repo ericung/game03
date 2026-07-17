@@ -2,6 +2,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+// Add SignalR
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 
@@ -19,6 +21,9 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapStaticAssets();
+
+// Map SignalR hubs
+app.MapHub<game03.Hubs.ChatHub>("/chathub");
 
 app.MapControllerRoute(
     name: "default",
